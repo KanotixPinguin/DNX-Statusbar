@@ -15,6 +15,38 @@ Movable DNX Runtime Frontend Extension for OpenWebRX+
 - Portable across OpenWebRX instances
 
 ## Install
+## Install
+
+Clone repository:
+
+git clone https://github.com/KanotixPinguin/DNX-Statusbar.git
+
+Enter directory:
+
+cd DNX-Statusbar
+
+Make scripts executable:
+
+chmod +x install.sh uninstall.sh
+
+Run installer:
+
+./install.sh
+
+Installer automatically detects OpenWebRX containers.
+
+Example:
+
+1) owrx-8010
+2) owrx-8011
+3) owrx-8015
+
+Select container number:
+
+After installation:
+Hard reload browser with:
+
+CTRL + SHIFT + R
 
 bash install.sh <container-name>
 
@@ -25,6 +57,17 @@ Examples:
 - bash install.sh owrx-8015
 
 ## Remove
+
+## Remove
+
+./uninstall.sh
+
+## Notes
+
+- Works with multiple OpenWebRX containers
+- No OpenWebRX core modifications
+- Runtime frontend extension only
+- Position stored in browser localStorage
 
 bash uninstall.sh <container-name>
 
