@@ -1,23 +1,36 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then
- echo
- echo "Usage:"
- echo "bash install.sh <container-name>"
- echo
- echo "Examples:"
- echo "bash install.sh owrx-8010"
- echo "bash install.sh owrx-8011"
- echo "bash install.sh owrx-8015"
- echo
+echo
+echo "=== DNX STATUSBAR INSTALL ==="
+echo
+
+mapfile -t CONTAINERS < <(docker ps --format "{{.Names}}" | grep -Ei "owrx|openwebrx")
+
+if [ ${#CONTAINERS[@]} -eq 0 ]; then
+ echo "No OpenWebRX containers found."
  exit 1
 fi
 
-CONTAINER="$1"
+echo "Found OpenWebRX containers:"
+echo
+
+for i in "${!CONTAINERS[@]}"; do
+ echo "$((i+1))) ${CONTAINERS[$i]}"
+done
 
 echo
-echo "=== DNX STATUSBAR INSTALL ==="
-echo "Container: $CONTAINER"
+read -p "Select container number: " NUM
+
+INDEX=$((NUM-1))
+CONTAINER="${CONTAINERS[$INDEX]}"
+
+if [ -z "$CONTAINER" ]; then
+ echo "Invalid selection."
+ exit 1
+fi
+
+echo
+echo "Using container: $CONTAINER"
 echo
 
 docker cp dnx_status.js "$CONTAINER":/usr/lib/python3/dist-packages/htdocs/static/dnx_status.js
@@ -27,5 +40,5 @@ docker exec "$CONTAINER" sh -c 'grep -q dnx_status.js /usr/lib/python3/dist-pack
 docker restart "$CONTAINER"
 
 echo
-echo "DNX Statusbar installed."
+echo "DNX Statusbar installed successfully."
 echo
