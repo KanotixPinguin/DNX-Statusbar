@@ -122,7 +122,7 @@ if(old){updateOnly(old);return;}
   let devices=Object.keys(sdrs).length;
 
   el.innerHTML=
-   (cfg.receiver_name||"unknown") +
+   "DNX STATUS | " + (cfg.receiver_name||"unknown") +
    " | 📡 " + profiles + " Profile" +
    " | 🟢 " + Math.round(profiles/2) + " Profile aktiv" +
    " | 📻 Devices: " + devices +
@@ -169,7 +169,7 @@ async function updateOnly(el){
   let devices=Object.keys(sdrs).length;
 
   el.innerHTML=
-   (cfg.receiver_name||"unknown") +
+   "DNX STATUS | " + (cfg.receiver_name||"unknown") +
    " | 📡 " + profiles + " Profile" +
    " | 🟢 " + Math.round(profiles/2) + " Profile aktiv" +
    " | 📻 Devices: " + devices +
