@@ -16,11 +16,23 @@ Movable DNX Runtime Frontend Extension for OpenWebRX+
 
 ## Install
 
-bash install.sh owrx-8015
+bash install.sh <container-name>
+
+Examples:
+
+- bash install.sh owrx-8010
+- bash install.sh owrx-8011
+- bash install.sh owrx-8015
 
 ## Remove
 
-bash uninstall.sh owrx-8015
+bash uninstall.sh <container-name>
+
+Examples:
+
+- bash uninstall.sh owrx-8010
+- bash uninstall.sh owrx-8011
+- bash uninstall.sh owrx-8015
 
 ## Runtime Features
 
