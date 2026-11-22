@@ -19,7 +19,7 @@ Movable DNX Runtime Frontend Extension for OpenWebRX+
 
 Clone repository:
 
-git clone https://github.com/KanotixPinguin/DNX-Statusbar.git
+git clone https://github.com/<DEIN-ACCOUNT>/DNX-Statusbar.git
 
 Enter directory:
 
