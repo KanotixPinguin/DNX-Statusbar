@@ -91,3 +91,11 @@ Examples:
 
 This is a DNX frontend runtime extension.
 It does not modify OpenWebRX DSP or backend core functionality.
+
+---
+
+## Verbindungen im DNX-Ökosystem
+
+![DNX Gesamtarchitektur & Verbindungen](docs/dnx-architektur-verbindungen.png)
+
+* **Verbindung zu `DNX-Styler`, `DNX-STATUS-v1` & `Account Control`:** Leichtgewichtige Basisvariante der schwebenden SDR-Statusleiste (`dnx_status.js` / `localStorage["dnx_status_pos"]`); lässt sich über `t_status` (`DNX Status`) im Styler schalten und respektiert das Recht `dnx_status` aus `:8095/api/me`.
